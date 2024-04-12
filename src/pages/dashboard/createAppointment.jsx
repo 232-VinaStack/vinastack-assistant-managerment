@@ -11,7 +11,7 @@ import axios from 'axios'
 let config = {
   method: 'post',
   maxBodyLength: Infinity,
-  url: 'localhost:8082/api/appointment',
+  url: 'localhost:8080/api/assistant/appointment',
   headers: {
     'Content-Type': 'application/json'
   },

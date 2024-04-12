@@ -18,7 +18,7 @@ export default function SelectSymptoms({ clinic, setSymptoms,symptoms }) {
   }, [limit]);
 
   const changeSymptoms = () => {
-    const newListSymtoms = symptomsData.filter(item => item.dep_id == clinic.id);
+    const newListSymtoms = symptomsData.filter(item => item.dep_id == clinic?.id);
     setListSymptoms(newListSymtoms);
     setSymptoms([]);
     setLimitReached(false);
