@@ -5,13 +5,13 @@ export function SelectClinic({ setClinic }) {
   return (
     <div className="">
       <Select
-        shrink={true}
+        shrink
         size="lg"
         label="Select a Clinic" onChange={(value) => {
           setClinic(value);
         }}>
         {listClinic.map(clinic => {
-          return (<Option value={clinic.id} key={clinic.id}>{clinic.department}</Option>)
+          return (<Option value={clinic} key={clinic.id}>{clinic.department}</Option>)
         })}
       </Select>
     </div>

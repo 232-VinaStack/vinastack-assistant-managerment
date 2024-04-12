@@ -35,7 +35,7 @@ const CreateAppointment = () => {
 
 
     const formValue = {
-      clinic,
+      clinic: clinic.department,
       doctor_id: doctor,
       patient_name: e.target[0].value,
       patient_phone: e.target[1].value,
@@ -75,7 +75,6 @@ const CreateAppointment = () => {
                   placeholder="Nguyễn Văn A"
                   label='Patient Name'
                   shrink
-
                 />
               </div>
               <div className="basis-1/2 mb-1 flex flex-col gap-6">
