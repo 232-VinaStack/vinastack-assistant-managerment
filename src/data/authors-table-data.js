@@ -1,52 +1,73 @@
 export const authorsTableData = [
   {
-    img: "/img/team-2.jpeg",
-    name: "John Michael",
-    email: "john@creative-tim.com",
-    job: ["Manager", "Organization"],
-    online: true,
-    date: "23/04/18",
+    id: 1,
+    user_name: "Tran Thi B",
+    user_phone: "0123456790",
+    clinic: "Clinic B",
+    start_time: "2024-04-11 09:00:00",
+    doctor_id: {
+      id: 2,
+      name: "Dr. B",
+      avatarLink: "link_to_avatar_2",
+      expYear: 8,
+      education: "MD"
+    },
+    symptoms: [
+      {
+        id: 2,
+        name: "Fever"
+      },
+      {
+        id: 3,
+        name: "Sick"
+      }
+    ]
   },
   {
-    img: "/img/team-1.jpeg",
-    name: "Alexa Liras",
-    email: "alexa@creative-tim.com",
-    job: ["Programator", "Developer"],
-    online: false,
-    date: "11/01/19",
+    id: 2,
+    user_name: "Tran Thi a",
+    user_phone: "0123456790",
+    clinic: "Clinic B",
+    start_time: "2024-04-18 09:00:00",
+    doctor_id: {
+      id: 2,
+      name: "Dr. B",
+      avatarLink: "link_to_avatar_2",
+      expYear: 8,
+      education: "MD"
+    },
+    symptoms: [
+      {
+        id: 2,
+        name: "Fever"
+      },
+      {
+        id: 3,
+        name: "Sick"
+      }
+    ]
   },
   {
-    img: "/img/team-4.jpeg",
-    name: "Laurent Perrier",
-    email: "laurent@creative-tim.com",
-    job: ["Executive", "Projects"],
-    online: true,
-    date: "19/09/17",
+    id: 3,
+    user_name: "Tran Thi vc",
+    user_phone: "0123456790",
+    clinic: "Clinic B",
+    start_time: "2024-04-13 09:00:00",
+    doctor_id: {
+      id: 2,
+      name: "Dr. B",
+      avatarLink: "link_to_avatar_2",
+      expYear: 8,
+      education: "MD"
+    },
+    symptoms: [
+      {
+        id: 2,
+        name: "Fever"
+      },
+    ]
   },
-  {
-    img: "/img/team-3.jpeg",
-    name: "Michael Levi",
-    email: "michael@creative-tim.com",
-    job: ["Programator", "Developer"],
-    online: true,
-    date: "24/12/08",
-  },
-  {
-    img: "/img/bruce-mars.jpeg",
-    name: "Bruce Mars",
-    email: "bruce@creative-tim.com",
-    job: ["Manager", "Executive"],
-    online: false,
-    date: "04/10/21",
-  },
-  {
-    img: "/img/team-2.jpeg",
-    name: "Alexander",
-    email: "alexander@creative-tim.com",
-    job: ["Programator", "Developer"],
-    online: false,
-    date: "14/09/20",
-  },
-];
+  
+];;
 
 export default authorsTableData;

@@ -11,8 +11,16 @@ import {
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import { authorsTableData, projectsTableData } from "@/data";
 import { Link } from "react-router-dom";
+import { format, isBefore, isSameDay } from 'date-fns';
+
+const listImg = ["/img/team-1.jpeg", "/img/team-2.jpeg", "/img/team-3.jpeg", "/img/team-4.jpeg", "/img/bruce-mars.jpeg",]
+function getRandomNumber() {
+  return Math.floor(Math.random() * 5); // Sinh số ngẫu nhiên từ 0 đến 4
+}
+
 
 export function Tables() {
+
   return (
     <div className="mt-12 mb-8 flex flex-col gap-12">
       <Card>
@@ -30,7 +38,7 @@ export function Tables() {
           <table className="w-full min-w-[640px] table-auto">
             <thead>
               <tr>
-                {["author", "function", "status", "employed", ""].map((el) => (
+                {["id", "patient","doctor", "symptoms", "status", "date", ""].map((el) => (
                   <th
                     key={el}
                     className="border-b border-blue-gray-50 py-3 px-5 text-left"
@@ -47,14 +55,29 @@ export function Tables() {
             </thead>
             <tbody>
               {authorsTableData.map(
-                ({ img, name, email, job, online, date }, key) => {
+                ({ id = "", user_name = "", user_phone = "", doctor_id, clinic, symptoms, online = true, start_time = "" }, key) => {
                   const className = `py-3 px-5 ${key === authorsTableData.length - 1
                     ? ""
                     : "border-b border-blue-gray-50"
                     }`;
+                  const img = listImg[getRandomNumber()];
 
+                  const startTime = new Date(start_time);
+                  const today = new Date();
+                  
+                  const isBeforeToday = isBefore(startTime, today);
+                  const isToday = isSameDay(startTime, today);
+                  
+                  const statusColor = isBeforeToday ? "blue-gray" : isToday ? "green" : "orange";
+                  const status = isBeforeToday ? "Done" : isToday ? "Now" : "Incoming";
+                  
                   return (
                     <tr key={name}>
+                      <td className={className}>
+                        <Typography className="text-xs font-semibold text-blue-gray-600">
+                          {id}
+                        </Typography>
+                      </td>
                       <td className={className}>
                         <div className="flex items-center gap-4">
                           <Avatar src={img} alt={name} size="sm" variant="rounded" />
@@ -64,33 +87,38 @@ export function Tables() {
                               color="blue-gray"
                               className="font-semibold"
                             >
-                              {name}
+                              {user_name}
                             </Typography>
                             <Typography className="text-xs font-normal text-blue-gray-500">
-                              {email}
+                              {user_phone}
                             </Typography>
                           </div>
                         </div>
                       </td>
                       <td className={className}>
                         <Typography className="text-xs font-semibold text-blue-gray-600">
-                          {job[0]}
+                          #{doctor_id.id}: {doctor_id.name}
+                        </Typography>
+                      </td>
+                      <td className={className}>
+                        <Typography className="text-xs font-semibold text-blue-gray-600">
+                          {clinic}
                         </Typography>
                         <Typography className="text-xs font-normal text-blue-gray-500">
-                          {job[1]}
+                        {symptoms?.map((item, index) => `${item?.name}${index != symptoms.length - 1 ? ', ' : ''}`)}
                         </Typography>
                       </td>
                       <td className={className}>
                         <Chip
                           variant="gradient"
-                          color={online ? "green" : "blue-gray"}
-                          value={online ? "online" : "offline"}
+                          color={statusColor}
+                          value={status}
                           className="py-0.5 px-2 text-[11px] font-medium w-fit"
                         />
                       </td>
                       <td className={className}>
                         <Typography className="text-xs font-semibold text-blue-gray-600">
-                          {date}
+                          {start_time}
                         </Typography>
                       </td>
                       <td className={className}>
