@@ -27,7 +27,7 @@ export function SelectDoctor({setDoctor}) {
         setDoctor(value)
       }}>
         {listDoctor.map(item => (
-          <Option key={item.id} value={item.id}>{item.name}</Option>
+          <Option key={item.id} value={item.id}>#{item.id}: {item.name}</Option>
         ))}
       </Select>
     </div>

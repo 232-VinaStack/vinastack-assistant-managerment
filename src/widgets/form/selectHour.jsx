@@ -9,7 +9,7 @@ const SelectHour = ({ choose, setChoose }) => {
   return (
     <ButtonGroup variant="text" >
       {listHours.map(item => (
-        <Button key={item.id} className={choose.id == item.id ? `border-solid border border-black` : ''} onClick={() => onClick(item)}>{item.hour}</Button>
+        <Button key={item.id} className={choose?.id == item?.id ? `border-solid border border-black` : ''} onClick={() => onClick(item)}>{item.hour}</Button>
       ))}
     </ButtonGroup>
   )

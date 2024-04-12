@@ -4,8 +4,18 @@ import DatePickerCustom from '../../widgets/form/datePicker'
 import { SelectDoctor } from '../../widgets/form/selectDoctor'
 import SelectSymptoms from '../../widgets/form/selectSymptom'
 import { SelectClinic } from '../../widgets/form/selectClinic'
+import { redirect } from "react-router-dom";
 import SelectHour from '../../widgets/form/selectHour'
 import { format } from 'date-fns'
+import axios from 'axios'
+let config = {
+  method: 'post',
+  maxBodyLength: Infinity,
+  url: 'localhost:8082/api/appointment',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+};
 
 const CreateAppointment = () => {
   const [clinic, setClinic] = useState()
@@ -35,6 +45,16 @@ const CreateAppointment = () => {
       symptoms: symptomsValue
     }
     console.log(formValue);
+    let data = JSON.stringify(formValue)
+
+    axios.request({ data, ...config })
+      .then((response) => {
+        console.log(response);
+        return redirect("/dashboard/home");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
   };
   return (
@@ -54,7 +74,7 @@ const CreateAppointment = () => {
                   size="lg"
                   placeholder="Nguyễn Văn A"
                   label='Patient Name'
-                  shrink={true}
+                  shrink
 
                 />
               </div>
@@ -62,7 +82,7 @@ const CreateAppointment = () => {
                 <Input
                   size="lg"
                   placeholder="0905 123 456"
-                  shrink={true}
+                  shrink
                   label="Patient Phone"
                 />
               </div>
@@ -75,7 +95,7 @@ const CreateAppointment = () => {
                 <div className="basis-1/2 mb-1 flex flex-col gap-6">
                   <Input
                     size="lg"
-                    shrink={true}
+                    shrink
                     placeholder="1"
                     label="Room"
                   />
