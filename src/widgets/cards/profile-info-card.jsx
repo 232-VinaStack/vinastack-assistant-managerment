@@ -8,9 +8,9 @@ import {
 
 export function ProfileInfoCard({ title, description, details, action }) {
   return (
-    <Card color="transparent" shadow={false}>
+    <Card color="white" shadow={false}>
       <CardHeader
-        color="transparent"
+        color="white"
         shadow={false}
         floated={false}
         className="mx-0 mt-0 mb-4 flex items-center justify-between gap-4"

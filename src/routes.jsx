@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
 import { SignIn, SignUp } from "@/pages/auth";
+import CreateAppointment from "./pages/dashboard/createAppointment";
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -37,9 +38,9 @@ export const routes = [
       },
       {
         icon: <InformationCircleIcon {...icon} />,
-        name: "notifications",
-        path: "/notifications",
-        element: <Notifications />,
+        name: "Create appointment",
+        path: "/create-appointment",
+        element: <CreateAppointment />,
       },
     ],
   },

@@ -13,18 +13,28 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider } from "@material-tailwind/react";
+import { ThemeProvider as ThemeProviderTailwind } from "@material-tailwind/react";
 import { MaterialTailwindControllerProvider } from "@/context";
 import "./tailwind.css";
+import { ThemeProvider, createTheme } from "@mui/material";
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#000000 ",
+    },
+  },
+});
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider>
-        <MaterialTailwindControllerProvider>
-          <App />
-        </MaterialTailwindControllerProvider>
-      </ThemeProvider>
+      <ThemeProviderTailwind>
+        <ThemeProvider theme={theme}>
+          <MaterialTailwindControllerProvider>
+            <App />
+          </MaterialTailwindControllerProvider>
+        </ThemeProvider>
+      </ThemeProviderTailwind>
     </BrowserRouter>
   </React.StrictMode>
 );
