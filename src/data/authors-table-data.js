@@ -7,7 +7,7 @@ export const authorsTableData = [
     start_time: "2024-04-11 09:00:00",
     doctor_id: {
       id: 2,
-      name: "Dr. B",
+      name: "Dr. Carter",
       avatarLink: "link_to_avatar_2",
       expYear: 8,
       education: "MD"
@@ -31,7 +31,7 @@ export const authorsTableData = [
     start_time: "2024-04-18 09:00:00",
     doctor_id: {
       id: 2,
-      name: "Dr. B",
+      name: "Dr. Jane",
       avatarLink: "link_to_avatar_2",
       expYear: 8,
       education: "MD"
@@ -55,7 +55,7 @@ export const authorsTableData = [
     start_time: "2024-04-13 09:00:00",
     doctor_id: {
       id: 2,
-      name: "Dr. B",
+      name: "Dr. Johny",
       avatarLink: "link_to_avatar_2",
       expYear: 8,
       education: "MD"
