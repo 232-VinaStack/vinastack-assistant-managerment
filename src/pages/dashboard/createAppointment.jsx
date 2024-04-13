@@ -26,6 +26,7 @@ const CreateAppointment = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    alert("Appointment created successfully");
     const symptomsValue = symptoms.map((symptom, index) => {
       return {
         id: symptom.index,
